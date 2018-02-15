@@ -7,11 +7,10 @@ function staggerFade() {
 }
 
 // Skycons(icons de api)
-
 function skycons() {
 	var i,
   icons = new Skycons({
-    "color" : "#FFFFFF",
+    "color" : "rgb(230, 222, 222)",
     "resizeClear": true 
   }),
   list  = [ 
@@ -47,7 +46,6 @@ function fToC(fahrenheit) {
 }
 
 // Weather Reporte
-
 function weatherReport(latitude, longitude) {
 	var apiKey       = 'f42e201c886a8677acb434cbe722cb51',
 			url          = 'https://api.darksky.net/forecast/',
@@ -81,45 +79,8 @@ function weatherReport(latitude, longitude) {
 			$("." + selector + " " + "ul").append('<li>' + Math.round(day[i]) + '</li>');
 		}
   }
-  
-  // Pronosticos por horas
-	$.getJSON(api_call, function(forecast) {
-		// for(var j = 0, k = forecast.hourly.data.length; j < k; j++) {
-		// 	var hourly_date    = new Date(forecast.hourly.data[j].time * 1000),
-		// 			hourly_day     = days[hourly_date.getDay()],
-		// 			hourly_temp    = forecast.hourly.data[j].temperature;
-		// 	if(isCelsiusChecked) {
-		// 		hourly_temp = fToC(hourly_temp);
-		// 		hourly_temp = Math.round((hourly_temp));
-		// 	}
 
-		// 	// agregamos los pronosticos ppor hora a las matrices vacias
-		// 	switch(hourly_day) {
-		// 		case 'Sunday':
-		// 			sunday.push(hourly_temp);
-		// 			break;
-		// 		case 'Monday':
-		// 			monday.push(hourly_temp);
-		// 			break;
-		// 		case 'Tuesday':
-		// 			tuesday.push(hourly_temp);
-		// 			break;
-		// 		case 'Wednesday':
-		// 			wednesday.push(hourly_temp);
-		// 			break;
-		// 		case 'Thursday':
-		// 			thursday.push(hourly_temp);
-		// 			break;
-		// 		case 'Friday':
-		// 			friday.push(hourly_temp);
-		// 			break;
-		// 		case 'Saturday':
-		// 			saturday.push(hourly_temp);
-		// 			break;
-		// 		default: console.log(hourly_date.toLocaleTimeString());
-		// 			break;
-		// 	}
-		// }
+	$.getJSON(api_call, function(forecast) {
 
 		// los proonosticos por dias
 		for(var i = 0, l = forecast.daily.data.length; i < l - 1; i++) {
@@ -128,7 +89,7 @@ function weatherReport(latitude, longitude) {
 					day      = days[date.getDay()],
 					skicons  = forecast.daily.data[i].icon,
 					time     = forecast.daily.data[i].time,
-					humidity = forecast.daily.data[i].humidity*100,
+					humidity = Math.round(forecast.daily.data[i].humidity*100),
 					summary  = forecast.daily.data[i].summary,
 					temp    = Math.round(forecast.hourly.data[i].temperature),
 					tempMax = Math.round(forecast.daily.data[i].temperatureMax);
@@ -140,15 +101,13 @@ function weatherReport(latitude, longitude) {
 			}
 
 			// Agregando datos para cada dia de la semana
-			
-      
       $("#forecast").append(
-				'<li class="shade-'+  skicons +'"><div class="card-container"><div><div class="front card"><div>' +
-					"<div class='graphic'><div>"+ day + "</div><canvas class=" + skicons + "></canvas></div>" +
-					"<div><b>Day</b>: " + date.toLocaleDateString() + "</div>" +
-					"<div><b>Temperature</b>: " + temp + "</div>" +
-					"<div><b>Max Temp.</b>: " + tempMax + "</div>" +
-					"<div><b>Humidity</b>: " + humidity + '%' +"</div>" +
+				'<li class=" center shade-'+  skicons +'"><div><div><div class="front card"><div>' +
+					"<div class='graphic'><h3 class='center'>"+ day + "</h3><br><canvas class=" + skicons + "></canvas></div>" +
+					"<br><div><b>Day</b>:&nbsp&nbsp&nbsp&nbsp&nbsp " + date.toLocaleDateString() + "</div>" +
+					"<div><b>Temperature</b>:&nbsp&nbsp&nbsp&nbsp&nbsp " + temp  + 'C'+'&#176'+"</div>" +
+					"<div><b>Max Temp.</b>:&nbsp&nbsp&nbsp&nbsp&nbsp " + tempMax + 'C'+'&#176'+"</div>" +
+					"<div><b>Humidity</b>:&nbsp&nbsp&nbsp&nbsp&nbsp " + humidity + '%' +"</div>" +
 					'<p class="summary">' + summary + '</p>' +
 					'</div></div><div class="back card"></div></div></div></li>'
       );
@@ -177,13 +136,14 @@ function weatherReport(latitude, longitude) {
 			}
     }
      
+    // Agregando datos para el dia en curso
+
     $("#forecastWeek").append(
-      '<div class="shade-'+ forecast.daily.data[0].icon +'"><div class="card-container"><div><div class="front     card"><div>' + "<div class='graphic'><div>"+ day + "</div><canvas class=" + forecast.daily.data[0].icon +"></canvas></div>" + "<div><b>Day</b>: " + new Date(forecast.daily.data[0].time * 1000).toLocaleDateString() + "</div>" + "<div><b>Temperature</b>: " + Math.round(forecast.hourly.data[0].temperature) + "</div>" +
-      "<div><b>Max Temp.</b>: " + Math.round(forecast.daily.data[0].temperatureMax) + "</div>" +
-      "<div><b>Humidity</b>: " + forecast.daily.data[0].humidity*100 +'%' + "</div>" +
+      '<div class="center shade-'+ forecast.daily.data[0].icon +'"><div"><div><div class="front card"><div>' + "<div class='graphic'><h3 class='center'>"+ day + "</h3><br><br><canvas class=" + forecast.daily.data[0].icon +"></canvas></div><br><div><b>Day</b>: &nbsp&nbsp&nbsp&nbsp&nbsp " + new Date(forecast.daily.data[0].time * 1000).toLocaleDateString() + "</div>" + "<div><b>Temperature</b>: &nbsp&nbsp&nbsp&nbsp&nbsp" + Math.round(forecast.hourly.data[0].temperature)+'C'+'&#176' + "</div>" +
+      "<div><b>Max Temp.</b>: &nbsp&nbsp&nbsp&nbsp&nbsp" + Math.round(forecast.daily.data[0].temperatureMax) + 'C'+'&#176'+ "</div>" +
+      "<div><b>Humidity</b>: &nbsp&nbsp&nbsp&nbsp&nbsp" + Math.round(forecast.daily.data[0].humidity*100) +'%' + "</div>" +
       '<p class="summary">' + forecast.daily.data[0].summary + '</p>' +
-      '</div></div><div class="back card">' +
-      '<div class="hourly' + ' ' + day + '"></div></div></div></div></div>'
+      '</div></div><div class="back card"></div></div></div></div>'
     );
 
 		skycons();
@@ -193,8 +153,6 @@ function weatherReport(latitude, longitude) {
 
 
 // eventos de buttons
-
-// Get Weather Button Event
 $('button').on('click', function(e) {
 	var lat       = $('#latitude').val(),
 			long      = $('#longitude').val(),
@@ -204,7 +162,7 @@ $('button').on('click', function(e) {
 		e.preventDefault();
 		$('.form').fadeOut(100, function() {
 			weatherReport(lat, long);
-			$('.screen').append('<button id="back">New Forecast</button><button id="next">Predictions of the Week</button><h3 class="city">' + city_name + '</h3><div id="forecastWeek"></div>');
+			$('.screen').append('<h3 class="city">' + city_name + '</h3><button id="back">New Forecast</button><button id="next">Predictions of the Week</button><div id="forecastWeek"></div>');
 		});
 	}
 });
@@ -228,24 +186,11 @@ $('body').on('click', '#back', function() {
 })
 
 
-
-
-
-
-
-
-
-
-// =================================================
-// Report City & AutoFill Coords
-// =================================================
+// Api Google maps
 
 function insertGoogleScript() {
 	var google_api = document.createElement('script'),
 			api_key    = 'AIzaSyAnhhd9cMSlPq7sss2LM2TNnp5JiTcx78s';
-
-	// Inject the script for Google's API and reference the initGoogleAPI
-	// function as a callback.
 	google_api.src = 'https://maps.googleapis.com/maps/api/js?key='+ api_key +'&callback=initGoogleAPI&libraries=places,geometry';
 	document.body.appendChild(google_api);
 }
@@ -263,3 +208,4 @@ function initGoogleAPI() {
 }
 
 insertGoogleScript();
+
