@@ -162,7 +162,7 @@ $('button').on('click', function(e) {
 		e.preventDefault();
 		$('.form').fadeOut(100, function() {
 			weatherReport(lat, long);
-			$('.screen').append('<h3 class="city">' + city_name + '</h3><button id="back">New Forecast</button><button id="next">Predictions of the Week</button><div id="forecastWeek"></div>');
+			$('.screen').append('<h2 class="city">' + city_name + '</h2><br><button id="back">New Forecast</button><button id="next">Predictions of the Week</button><div id="forecastWeek"></div>');
 		});
 	}
 });

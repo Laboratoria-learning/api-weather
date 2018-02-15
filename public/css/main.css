@@ -74,44 +74,44 @@ input[type="text"] {
 	padding: 10px;
 	font-weight: 700;
 	font-size: 1em;
-  width: 65%;
+  width: 75%;
   background-color: rgba(0, 0, 0, 0.425);
 }
 
 button:not(#back) {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
 	/* max-width: 410px; */
-	margin: 1.3rem;
+	margin-left: 6%;
 	padding: 13px;
 	-webkit-transition: 200ms all ease-in-out;
 	transition: 200ms all ease-in-out;
-	width: 45%;
+	width: 40%;
 	font-weight: 700;
 	text-transform: uppercase;
-	background: rgba(52, 185, 112, 0.753);
+	background: rgba(26, 117, 98, 0.822);
 	color: white;
 }
 button:not(#back):hover {
 	cursor: pointer;
-  background: #04885ca6;
+  background: #67f1c3a6;
   padding: 12px;
 }
 
 button:not(#next) {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
-	margin: 1.3rem;
-	padding: 10px;
+	margin-left:6%;
+	padding: 13px;
 	-webkit-transition: 200ms all ease-in-out;
 	transition: 200ms all ease-in-out;
-	width: 45%;
+	width: 40%;
 	font-weight: 700;
 	text-transform: uppercase;
-	background: rgba(52, 185, 112, 0.753);
+	background: rgba(26, 117, 98, 0.822);
 	color: white;
 }
 button:not(#next):hover {
 	cursor: pointer;
-	background: #036d49a6;
+	background: #67f1c3a6;
 }
 
 /* animaciones */
@@ -164,10 +164,8 @@ button:not(#next):hover {
 /* fin de animaciones */
 
 div.screen {
-  /* transform: translateX(0) translateY(10%); */
-    width: 70%;
+  width: 70%;
 	background: rgba(2, 78, 68, 0.473);
-	margin: 1% auto;
 	color: white;
 	font-weight: bolder;
 }
@@ -179,7 +177,7 @@ div.screen {
 
 .city {
 	margin-bottom: 0;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	font-weight: 700;
 	text-align: center;
 	color: white;
@@ -188,7 +186,7 @@ div.screen {
 .summary {
 	margin-bottom: 0;
 	margin-top: 1.4rem;
-	font-size: 1.5em;
+	font-size: 1em;
 	font-weight: 400;
 	text-align: center;
 }
@@ -196,25 +194,26 @@ div.screen {
 .hourly {
 	word-wrap: break-word;
 }
+
 .hourly b {
 	display: block;
 	padding: 0.5rem 0 0.5rem 0;
 	color: white;
 }
+
 .hourly ul {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: wrap;
-			flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .hourly ul li {
 	margin: 0.19;
 }
-.hourly ul li:not(:last-of-type)::after {
-	content: ',';
-}
+
+
 
 .graphic {
 	box-shadow: 0 1px 0 rgba(71, 71, 71, 0.48), 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -230,7 +229,7 @@ div.screen {
 	margin: auto;
 	width: 100%;
 }
-#forecast > li {
+#forecast > li, #forecastWeek >div  {
 	box-shadow: 0 3px 6px rgba(107, 106, 106, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	border-radius: 2px;
 	margin: 1rem 0.5rem;
@@ -287,7 +286,7 @@ label[for="celsius"]::before {
 	display: block;
 	width: 20px;
   height: 20px;
-	border: 2px solid rgba(52, 185, 112, 0.753);
+	border: 2px solid rgba(26, 117, 98, 0.822);
 	border-radius: 2px;
 	z-index: -1;
 }
