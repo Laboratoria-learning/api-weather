@@ -4,6 +4,10 @@
   font: normal 'Alegreya Sans', sans-serif;
 }
 
+section.bg {
+	height: 100vh;
+	width: 100%;
+}
 /* reutilizables */
 .right {
   float: right;
@@ -32,8 +36,9 @@
 :-ms-input-placeholder {
 	color: #C9C9C9;
 }
+
 legend {
-	font-size: 1.5em;
+  font-size: 1.5em;
   color: rgba(255, 255, 255, 0.8);
   padding: 14px;
 }
@@ -50,7 +55,7 @@ fieldset {
 
 label {
   font-weight: 400;
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 
 button,
@@ -140,9 +145,9 @@ button:not(#back):hover {
 
 div.screen {
   /* transform: translateX(0) translateY(10%); */
-	height: 100vh;
-    width: 100%;
+    width: 70%;
 	background: rgba(3, 102, 89, 0.507);
+	margin: 1% auto;
 }
 
 .form {
@@ -152,7 +157,7 @@ div.screen {
 
 .city {
 	margin-bottom: 0;
-	font-size: 1.375em;
+	font-size: 1.3em;
 	font-weight: 700;
 	text-align: center;
 	color: white;
@@ -160,9 +165,10 @@ div.screen {
 
 .summary {
 	margin-bottom: 0;
-	margin-top: 1.75rem;
+	margin-top: 1.4rem;
 	font-size: 2em;
 	font-weight: 400;
+	text-align: center;
 }
 
 .hourly {
@@ -255,7 +261,9 @@ input[type="checkbox"]:checked + label {
 }
 input[type="checkbox"]:checked + label::before {
 	top: 0;
-	background: rgb(14, 22, 1);
+	width: 100%;
+	height: 100%;
+	background: #82B541;
 }
 
 label[for="celsius"],
@@ -282,8 +290,8 @@ label[for="celsius"]::before {
 	left: 0;
 	right: 0;
 	display: block;
-	width: 25px;
-	height: 25px;
+	width: 20px;
+	height: 20px;
 	border: 2px solid #82B541;
 	border-radius: 2px;
 	z-index: -1;
