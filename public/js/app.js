@@ -11,9 +11,9 @@ function skycons() {
 	var i,
   icons = new Skycons({
     "color" : "rgb(230, 222, 222)",
-    "resizeClear": true 
+    "resizeClear": true
   }),
-  list  = [ 
+  list  = [
     "clear-day",
     "clear-night",
     "partly-cloudy-day",
@@ -28,7 +28,7 @@ function skycons() {
 
 	// recorrer la lista de iconos
 	for(i = list.length; i--;) {
-		var weatherType = list[i], 
+		var weatherType = list[i],
 			elements    = document.getElementsByClassName( weatherType );
 		for (e = elements.length; e--;) {
 			icons.set(elements[e], weatherType);
@@ -135,12 +135,12 @@ function weatherReport(latitude, longitude) {
 					break;
 			}
     }
-     
-    // Agregando datos para el dia en curso
+
+		// Agregando datos para el dia en curso
 
     $("#forecastWeek").append(
-      '<div class="center shade-'+ forecast.daily.data[0].icon +'"><div"><div><div class="front card"><div>' + "<div class='graphic'><h3 class='center'>"+ day + "</h3><br><br><canvas class=" + forecast.daily.data[0].icon +"></canvas></div><br><div><b>Day</b>: &nbsp&nbsp&nbsp&nbsp&nbsp " + new Date(forecast.daily.data[0].time * 1000).toLocaleDateString() + "</div>" + "<div><b>Temperature</b>: &nbsp&nbsp&nbsp&nbsp&nbsp" + Math.round(forecast.hourly.data[0].temperature)+'C'+'&#176' + "</div>" +
-      "<div><b>Max Temp.</b>: &nbsp&nbsp&nbsp&nbsp&nbsp" + Math.round(forecast.daily.data[0].temperatureMax) + 'C'+'&#176'+ "</div>" +
+      '<div class="center shade-'+ forecast.daily.data[0].icon +'"><div"><div><div class="front card"><div>' + "<div class='graphic'><h3 class='center'>" + days[date.getDay()] + "</h3><br><br><canvas class=" + forecast.daily.data[0].icon +"></canvas></div><br><div><b>Day</b>: &nbsp&nbsp&nbsp&nbsp&nbsp " + new Date(forecast.daily.data[0].time * 1000).toLocaleDateString() + "</div>" + "<div><b>Temperature</b>: &nbsp&nbsp&nbsp&nbsp&nbsp" + Math.round(fToC(forecast.hourly.data[0].temperature)) + 'C' + '&#176' + "</div>" +
+      "<div><b>Max Temp.</b>: &nbsp&nbsp&nbsp&nbsp&nbsp" + Math.round(fToC(forecast.daily.data[0].temperatureMax)) + 'C' + '&#176' + "</div>" +
       "<div><b>Humidity</b>: &nbsp&nbsp&nbsp&nbsp&nbsp" + Math.round(forecast.daily.data[0].humidity*100) +'%' + "</div>" +
       '<p class="summary">' + forecast.daily.data[0].summary + '</p>' +
       '</div></div><div class="back card"></div></div></div></div>'
@@ -208,4 +208,3 @@ function initGoogleAPI() {
 }
 
 insertGoogleScript();
-
