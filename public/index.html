@@ -9,34 +9,34 @@
 	</head>
 
 	<body>
-		<div class="marvel-device nexus5">
+		<section class="bg">
 			<!-- <div class="top-bar"></div>
 			<div class="sleep"></div>
 			<div class="volume"></div>
 			<div class="camera"></div> -->
-			<div class="screen">
-				<img src="assets/logo.png" alt="weather" id="logo">
-				<form method="get" class="form">
+			<div class="screen center">
+        <figure class="center"> <img  src="assets/logo.png" alt="weather" id="logo"></figure>
+				<form method="get" class="form center">
 					<fieldset>
 						<legend>If searching by city the latitude and longitude input fields will autofill your coords.</legend>
 						<ul class="list-reset">
-							<li class="form-field">
-								<label for="city-search">City Name</label>
-								<input type="text" id="city-search" placeholder="lima Peru">
+							<li class="form-field ">
+								<label for="city-search">City Name</label><br>
+								<input type="text" id="city-search " placeholder="lima Peru">
 							</li>
 
 							<li class="form-field">
-								<label for="latitude">Latitude</label>
+								<label for="latitude">Latitude</label><br>
 								<input type="text" id="latitude" placeholder="42.9150747" required>
 							</li>
 
 							<li class="form-field">
-								<label for="longitude">Longitude</label>
+								<label for="longitude">Longitude</label><br>
 								<input type="text" id="longitude" placeholder="-77.784323" required>
 							</li>
 
 							<li class="form-field">
-								<input type="checkbox" id="celsius">
+								<input type="checkbox" id="celsius"><br>
 								<label for="celsius">Weather Celsius</label>
 							</li>
 						</ul>
@@ -44,7 +44,7 @@
 					<button>Get Weather</button>
 				</form>
 			</div>
-		</div>
+    </section>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js'></script>
 		<script src="js/app.js"></script>
