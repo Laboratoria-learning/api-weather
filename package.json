@@ -1,0 +1,24 @@
+{
+  "name": "api-weather",
+  "version": "1.0.0",
+  "description": "> Recuerda seguir siempre esta [guía de estilos](https://github.com/Laboratoria/js-style-guide/)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarinaRH/api-weather.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarinaRH/api-weather/issues"
+  },
+  "homepage": "https://github.com/MarinaRH/api-weather#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
